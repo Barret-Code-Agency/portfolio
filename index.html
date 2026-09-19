@@ -11,12 +11,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/barret-icon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="nav">
-  <a class="nav-brand" href="#top">Fernando Delgado</a>
+  <a class="nav-brand" href="#top"><img src="img/barret-blanco.png" alt="Barret Code Agency" width="120" height="37"><span>Fernando Delgado</span></a>
   <nav class="nav-links">
     <a href="#casos">Casos</a>
     <a href="#demo">Demo</a>
@@ -46,7 +47,7 @@
       <li><strong>343</strong><span>tests de integracion contra base de datos real</span></li>
       <li><strong>85</strong><span>items de checklist operando sin señal en una mina</span></li>
       <li><strong>310</strong><span>temas de capacitacion servidos con control de acceso</span></li>
-      <li><strong>5</strong><span>bots corriendo 24/7 con panel de control en caliente</span></li>
+      <li><strong>8</strong><span>bots de trading operando en vivo con tablero propio</span></li>
     </ul>
   </section>
 
@@ -179,8 +180,11 @@
     <article class="case">
       <header>
         <span class="case-tag">Automatizacion</span>
-        <h3>Flota de bots: cinco procesos 24/7 con control en caliente</h3>
+        <h3>Flota de bots: procesos 24/7 con control en caliente</h3>
       </header>
+      <figure class="shots">
+        <a class="shot shot-main" href="img/bots-panel.webp"><img src="img/bots-panel.webp" alt="Tablero de bots de tendencia: 8 bots spot y futuros sobre testnet de Binance, resultado realizado y sin realizar, ordenes manuales y modo automatico" loading="lazy"></a>
+      </figure>
       <div class="case-grid">
         <div>
           <h4>Problema</h4>
@@ -188,7 +192,7 @@
         </div>
         <div>
           <h4>Solucion</h4>
-          <p>Cinco bots de paper trading (cripto y forex) con un panel web unificado que edita la configuracion en vivo, un watchdog que los levanta si se caen y alertas por Telegram.</p>
+          <p>Ocho bots de tendencia (spot y futuros, largo y corto) sobre testnet de Binance con tablero en vivo que se regenera solo cada 5 minutos, mas cinco bots de paper trading cripto y forex con panel unificado que edita la configuracion en caliente, watchdog y alertas por Telegram.</p>
         </div>
         <div>
           <h4>Decisiones tecnicas</h4>
@@ -341,6 +345,7 @@
 </main>
 
 <footer class="footer">
+  <img src="img/barret-blanco.png" alt="Barret Code Agency" width="140" height="44">
   <span>Fernando Delgado · Argentina</span>
   <span>Software para operaciones de seguridad y control</span>
 </footer>

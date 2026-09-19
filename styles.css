@@ -175,3 +175,10 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 #lightbox::backdrop { background: rgba(5, 8, 18, .9); }
 #lightbox img { display: block; max-width: min(96vw, 1400px); max-height: 88vh; width: auto; height: auto; border-radius: 10px; border: 1px solid var(--line); }
 #lightboxClose { position: absolute; top: 8px; right: 8px; font: 600 .85rem var(--font); color: var(--text); background: rgba(11,16,32,.85); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+
+/* Marca */
+.nav-brand { display: flex; align-items: center; gap: 12px; }
+.nav-brand img { height: 30px; width: auto; display: block; }
+.nav-brand span { border-left: 1px solid var(--line); padding-left: 12px; }
+@media (max-width: 480px) { .nav-brand span { display: none; } }
+.footer img { height: 34px; width: auto; display: block; opacity: .9; flex-basis: 100%; }
