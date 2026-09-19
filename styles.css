@@ -30,8 +30,8 @@ body {
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 .5em; font-weight: 800; letter-spacing: -0.01em; }
-h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
-h3 { font-size: 1.25rem; }
+h2 { font-size: clamp(1.85rem, 3vw, 2.45rem); }
+h3 { font-size: 1.5rem; }
 h4 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); font-weight: 600; margin-bottom: .35em; }
 p { margin: 0 0 1em; }
 ul, ol { margin: 0; padding-left: 1.2em; }
@@ -60,7 +60,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 /* Hero */
 .hero { padding: 88px 0 64px; text-align: center; }
 .eyebrow { color: var(--accent); font-weight: 600; font-size: .9rem; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 14px; }
-.hero h1 { font-size: clamp(2rem, 5vw, 3.6rem); max-width: none; }
+.hero h1 { font-size: clamp(2.25rem, 5vw, 3.85rem); max-width: none; }
 .lead { font-size: 1.2rem; color: var(--muted); max-width: none; }
 .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 28px 0 44px; }
 .stats {
@@ -148,7 +148,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 /* Principles / tech */
 .principles, .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
 .principles > div, .tech-grid > div { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
-.principles h3 { font-size: 1.05rem; }
+.principles h3 { font-size: 1.3rem; }
 .principles p, .tech-grid p { color: #cfd6e4; font-size: .97rem; margin: 0; }
 
 /* Contact */
@@ -190,7 +190,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 .footer img { height: 48px; width: auto; display: block; opacity: .9; }
 
 /* Demos 2 y 3 */
-.demo-title { margin-top: 44px; font-size: 1.15rem; }
+.demo-title { margin-top: 44px; font-size: 1.4rem; }
 .demo-title:first-of-type { margin-top: 0; }
 .demo-intro { color: var(--muted); max-width: 820px; margin-bottom: 16px; font-size: .97rem; }
 
