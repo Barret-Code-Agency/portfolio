@@ -120,3 +120,21 @@
   render();
   if (state.online && state.queue.length) drenar();
 })();
+
+// Lightbox de capturas
+(() => {
+  const dlg = document.getElementById("lightbox");
+  if (!dlg || !dlg.showModal) return;
+  const img = dlg.querySelector("img");
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("a.shot");
+    if (!a) return;
+    e.preventDefault();
+    img.src = a.getAttribute("href");
+    img.alt = a.querySelector("img")?.alt || "";
+    dlg.showModal();
+  });
+  document.getElementById("lightboxClose").addEventListener("click", () => dlg.close());
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener("close", () => { img.src = ""; });
+})();

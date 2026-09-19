@@ -158,3 +158,20 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
   display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between;
   color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line);
 }
+
+/* Capturas */
+.hero-shot { display: block; margin: 0 0 28px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: 0 30px 60px -30px rgba(0,0,0,.8); }
+.hero-shot img { display: block; width: 100%; height: auto; }
+.shots { margin: 0 0 22px; }
+.shot { display: block; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-2); }
+.shot img { display: block; width: 100%; height: auto; transition: transform .2s; }
+.shot:hover img { transform: scale(1.015); }
+.shot-main { margin-bottom: 10px; }
+.thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.thumbs .shot { aspect-ratio: 16 / 10; }
+.thumbs .shot img { height: 100%; object-fit: cover; object-position: top left; }
+
+#lightbox { border: 0; padding: 0; background: transparent; max-width: min(96vw, 1400px); max-height: 94vh; }
+#lightbox::backdrop { background: rgba(5, 8, 18, .9); }
+#lightbox img { display: block; max-width: min(96vw, 1400px); max-height: 88vh; width: auto; height: auto; border-radius: 10px; border: 1px solid var(--line); }
+#lightboxClose { position: absolute; top: 8px; right: 8px; font: 600 .85rem var(--font); color: var(--text); background: rgba(11,16,32,.85); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
