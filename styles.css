@@ -152,7 +152,11 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 .principles p, .tech-grid p { color: #cfd6e4; font-size: .97rem; margin: 0; }
 
 /* Contact */
-.contact-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.contact { text-align: center; }
+.contact .section-intro { max-width: none; font-size: 1.15rem; }
+.contact-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.contact-actions .btn { padding: 14px 26px; font-size: 1.05rem; }
+@media (max-width: 720px) { .contact { text-align: left; } .contact-actions { justify-content: flex-start; } .contact .section-intro { font-size: 1rem; } }
 
 .footer {
   max-width: var(--max); margin: 0 auto; padding: 28px 16px 40px;
