@@ -1,89 +1,319 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FHD_Kernel | Software Engineer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fernando Delgado | Software para operaciones de seguridad</title>
+  <meta name="description" content="Desarrollador full-stack especializado en software para empresas de seguridad privada y operaciones de campo: SaaS multi-tenant, aplicaciones offline-first y automatizacion.">
+  <meta property="og:title" content="Fernando Delgado | Software para operaciones de seguridad">
+  <meta property="og:description" content="SaaS multi-tenant, apps offline-first para trabajo en campo y automatizacion. Hablo el idioma del cliente antes de escribir la primera linea.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="ide-layout">
+<body>
 
-    <aside class="ide-sidebar">
-        <div class="sidebar-icons">
-            <div class="icon active" title="Explorador">📁</div>
-            <div class="icon" title="Buscar">🔍</div>
-            <div class="icon" title="Git">🌿</div>
-            <div class="icon" title="Extensiones">🧩</div>
-        </div>
-        <div class="sidebar-bottom">
-            <div class="icon" title="Configuración">⚙️</div>
-        </div>
-    </aside>
+<header class="nav">
+  <a class="nav-brand" href="#top">Fernando Delgado</a>
+  <nav class="nav-links">
+    <a href="#casos">Casos</a>
+    <a href="#demo">Demo</a>
+    <a href="#metodo">Metodo</a>
+    <a href="#tecnico">Perfil tecnico</a>
+    <a class="nav-cta" href="#contacto">Hablemos</a>
+  </nav>
+</header>
 
-    <nav class="ide-explorer">
-        <div class="explorer-header">EXPLORADOR</div>
-        <div class="explorer-section">
-            <p class="section-title">▼ PORTFOLIO-FHD</p>
-            <ul class="file-list">
-                <li class="file active" data-target="home"><span>JS</span> index.js</li>
-                <li class="file" data-target="projects"><span>{}</span> projects.json</li>
-                <li class="file" data-target="skills"><span>TS</span> skills.ts</li>
-                <li class="file" data-target="contact"><span>MD</span> contact.md</li>
-            </ul>
-        </div>
-    </nav>
+<main id="top">
 
-    <main class="ide-main">
-        <header class="ide-tabs">
-            <div class="tab active" id="current-tab-name">index.js</div>
-        </header>
-
-        <section class="ide-editor" id="editor-content">
-            <div class="code-view active" id="home-view">
-                <div class="line-numbers">1 2 3 4 5 6 7</div>
-                <div class="code-content">
-                    <p><span class="keyword">const</span> <span class="variable">developer</span> = {</p>
-                    <p class="indent"><span class="property">name</span>: <span class="string">"Fernando Héctor Delgado"</span>,</p>
-                    <p class="indent"><span class="property">role</span>: <span class="string">"Fullstack Developer"</span>,</p>
-                    <p class="indent"><span class="property">focus</span>: [<span class="string">"Architecture"</span>, <span class="string">"Scalability"</span>],</p>
-                    <p class="indent"><span class="property">status</span>: <span class="string">"Open for challenges"</span></p>
-                    <p>};</p>
-                    <p><span class="keyword">export default</span> developer;</p>
-                </div>
-            </div>
-        </section>
-
-        <footer class="ide-terminal">
-            <div class="terminal-header">
-                <div class="terminal-tabs">
-                    <span class="t-tab active">TERMINAL</span>
-                    <span class="t-tab">DEBUG CONSOLE</span>
-                    <span class="t-tab">OUTPUT</span>
-                </div>
-            </div>
-            <div class="terminal-body" id="terminalOutput">
-                <div class="line">fhd_kernel v1.0.0 initialized. Type 'help' for available commands.</div>
-            </div>
-            <div class="terminal-input-line">
-                <span class="prompt">fhd@portfolio:~$</span>
-                <input type="text" id="terminalInput" spellcheck="false" autofocus>
-            </div>
-        </footer>
-    </main>
-
-    <div class="ide-status-bar">
-        <div class="status-left">
-            <span>🌿 main*</span>
-            <span>⟳ sync</span>
-        </div>
-        <div class="status-right">
-            <span>UTF-8</span>
-            <span>JavaScript</span>
-            <span>Line 1, Col 1</span>
-        </div>
+  <section class="hero">
+    <p class="eyebrow">Software para operaciones de seguridad y control</p>
+    <h1>Construyo el software que tu operacion usa en la calle, en la mina y en la oficina.</h1>
+    <p class="lead">
+      Plataformas SaaS, aplicaciones que siguen funcionando sin señal y automatizacion para empresas de
+      seguridad privada, consultoras y operaciones de campo. Vengo del rubro: conozco el convenio, los
+      libros de actas, las rondas y la liquidacion antes de escribir la primera linea de codigo.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#demo">Probar la demo sin conexion</a>
+      <a class="btn btn-ghost" href="#casos">Ver casos de estudio</a>
     </div>
+    <ul class="stats">
+      <li><strong>8</strong><span>modulos en produccion en un SaaS de vigilancia</span></li>
+      <li><strong>343</strong><span>tests de integracion contra base de datos real</span></li>
+      <li><strong>85</strong><span>items de checklist operando sin señal en una mina</span></li>
+      <li><strong>310</strong><span>temas de capacitacion servidos con control de acceso</span></li>
+      <li><strong>5</strong><span>bots corriendo 24/7 con panel de control en caliente</span></li>
+    </ul>
+  </section>
 
-    <script src="script.js"></script>
+  <section id="casos" class="section">
+    <h2>Casos de estudio</h2>
+    <p class="section-intro">Cada proyecto, contado como lo que fue: un problema operativo, una decision tecnica y un resultado medible.</p>
+
+    <article class="case">
+      <header>
+        <span class="case-tag">SaaS multi-tenant</span>
+        <h3>CyranoApp: gestion integral para empresas de vigilancia</h3>
+      </header>
+      <div class="case-grid">
+        <div>
+          <h4>Problema</h4>
+          <p>Las empresas de seguridad manejan rondas, actas, control vehicular, liquidacion por convenio y facturacion con planillas sueltas y cuadernos. Nada se cruza, nada se audita, todo depende de una persona.</p>
+        </div>
+        <div>
+          <h4>Solucion</h4>
+          <p>Una plataforma con 8 modulos sobre un mismo modelo de datos: cada acta, ronda o novedad queda trazada, firmada y disponible para gerencia y cliente segun su rol.</p>
+        </div>
+        <div>
+          <h4>Decisiones tecnicas</h4>
+          <ul>
+            <li>Permisos por rol y alcance (RBAC con scopes), no por pantalla.</li>
+            <li>Libro de actas con cadena de firma verificable en el servidor.</li>
+            <li>PWA con cola de sincronizacion para los modulos que se usan en campo.</li>
+            <li>Cifrado AES-GCM para datos sensibles del personal.</li>
+            <li>343 tests de integracion contra base real, sin mocks.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resultado</h4>
+          <p>En piloto con una empresa de seguridad real. Periodos de liquidacion (24 a 23) y de facturacion (1 a 31) modelados por separado, como exige el convenio.</p>
+          <p class="case-stack">React 19 · Firebase · Cloud Functions · PWA</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <header>
+        <span class="case-tag">Offline-first en mina</span>
+        <h3>Control Vehicular: checklist de flota con conexion intermitente</h3>
+      </header>
+      <div class="case-grid">
+        <div>
+          <h4>Problema</h4>
+          <p>Vigiladores en un yacimiento minero deben inspeccionar cada vehiculo antes de salir. En el punto de control no hay señal. El papel se pierde, se rompe o llega tarde.</p>
+        </div>
+        <div>
+          <h4>Solucion</h4>
+          <p>Aplicacion instalable que guarda cada inspeccion en el dispositivo, la firma electronicamente, genera el PDF y la sube sola cuando vuelve la conexion. Gerencia administra la flota y el historial desde la web.</p>
+        </div>
+        <div>
+          <h4>Decisiones tecnicas</h4>
+          <ul>
+            <li>IndexedDB con cola de sincronizacion e indicador visible del estado de red.</li>
+            <li>85 items en 7 secciones, porteados 1:1 del procedimiento del cliente.</li>
+            <li>Dos roles (vigilador y gerencia), JWT, PostgreSQL detras de una API Express.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resultado</h4>
+          <p>Operativo para una empresa de transporte de valores en un proyecto minero. La demo de abajo reproduce el mecanismo.</p>
+          <p class="case-stack">React 19 · PWA · IndexedDB · Node · PostgreSQL</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <header>
+        <span class="case-tag">Capacitacion</span>
+        <h3>Aula Vigilador: contenido que no se puede copiar</h3>
+      </header>
+      <div class="case-grid">
+        <div>
+          <h4>Problema</h4>
+          <p>Un aula virtual comun descarga el curso completo al navegador. Cualquier alumno puede extraerlo y el material, que es el activo del negocio, deja de tener valor.</p>
+        </div>
+        <div>
+          <h4>Solucion</h4>
+          <p>El contenido nunca viaja al cliente entero: una Cloud Function entrega cada tema solo si la ficha del alumno tiene ese modulo comprado y habilitado. Progreso, evaluaciones y credenciales se calculan en el servidor.</p>
+        </div>
+        <div>
+          <h4>Decisiones tecnicas</h4>
+          <ul>
+            <li>Tiempo de lectura acreditado por latidos del servidor, no por un temporizador del navegador.</li>
+            <li>Un dispositivo activo por cuenta; el ultimo que entra gana.</li>
+            <li>Credenciales firmadas (ES256) verificables por terceros.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resultado</h4>
+          <p>16 modulos y 310 temas de contenido propio (mas de 26 MB de texto), incluido un modulo completo de Principios Voluntarios y Derechos Humanos.</p>
+          <p class="case-stack">React · Firebase · Cloud Functions</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <header>
+        <span class="case-tag">Automatizacion</span>
+        <h3>Flota de bots: cinco procesos 24/7 con control en caliente</h3>
+      </header>
+      <div class="case-grid">
+        <div>
+          <h4>Problema</h4>
+          <p>Operar varios procesos autonomos que toman decisiones cada pocos minutos, sin reiniciarlos cada vez que hay que ajustar un parametro y sin enterarse tarde cuando algo se cae.</p>
+        </div>
+        <div>
+          <h4>Solucion</h4>
+          <p>Cinco bots de paper trading (cripto y forex) con un panel web unificado que edita la configuracion en vivo, un watchdog que los levanta si se caen y alertas por Telegram.</p>
+        </div>
+        <div>
+          <h4>Decisiones tecnicas</h4>
+          <ul>
+            <li>Configuracion viva: cada bot relee sus parametros al inicio de cada ciclo, con validacion de rango y fallback.</li>
+            <li>Circuit breakers diarios y semanales; cierre global ante movimientos anomalos del mercado.</li>
+            <li>Codigo compartido entre bots: un cambio en el nucleo llega a todos.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resultado</h4>
+          <p>Corriendo desde mayo de 2026 sin intervencion manual. Dashboards accesibles desde cualquier lugar por tunel seguro.</p>
+          <p class="case-stack">Python · pandas · ccxt · Telegram</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <header>
+        <span class="case-tag">Consultoria</span>
+        <h3>Diagnostico de madurez en gestion de riesgos</h3>
+      </header>
+      <div class="case-grid">
+        <div>
+          <h4>Problema</h4>
+          <p>Las consultoras hacen el diagnostico de madurez a mano: planillas, semaforos armados uno por uno, un informe que tarda dias.</p>
+        </div>
+        <div>
+          <h4>Solucion</h4>
+          <p>Herramienta de autoevaluacion sobre 11 dimensiones y 39 practicas con 5 niveles de madurez. Devuelve matriz semaforo, radar, indicador global e informe imprimible en el momento.</p>
+        </div>
+        <div>
+          <h4>Decisiones tecnicas</h4>
+          <ul>
+            <li>Sin dependencias ni servidor: un archivo que corre en cualquier navegador.</li>
+            <li>Ponderacion ajustable de los cumplimientos parciales.</li>
+            <li>Version Excel con formulas para quien prefiere trabajar ahi.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resultado</h4>
+          <p>De dias a minutos. Sirve como puerta de entrada comercial: el cliente se diagnostica y la consultora llega con el informe hecho.</p>
+          <p class="case-stack">HTML · JS · Excel</p>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="demo" class="section demo-section">
+    <h2>Demo: un checklist que no necesita señal</h2>
+    <p class="section-intro">
+      Asi funciona el control vehicular en la mina. Marca algunos items, corta la conexion con el boton,
+      segui marcando, y volve a conectar: todo lo que hiciste sin señal se sube solo. Cerra la pestaña y
+      volve a abrirla: sigue ahi.
+    </p>
+
+    <div class="demo">
+      <div class="demo-toolbar">
+        <div class="net-status">
+          <span class="dot" id="netDot"></span>
+          <span id="netLabel">Conectado</span>
+          <span class="pending" id="pendingLabel"></span>
+        </div>
+        <div class="demo-toolbar-actions">
+          <button class="btn btn-ghost btn-sm" id="toggleNet" type="button">Cortar conexion</button>
+          <button class="btn btn-ghost btn-sm" id="resetDemo" type="button">Reiniciar</button>
+        </div>
+      </div>
+
+      <div class="demo-body">
+        <ul class="checklist" id="checklist"></ul>
+        <div class="log">
+          <h4>Registro de sincronizacion</h4>
+          <ol id="log"></ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="metodo" class="section">
+    <h2>Como trabajo</h2>
+    <div class="principles">
+      <div>
+        <h3>Primero el dominio</h3>
+        <p>Antes de diseñar una pantalla entiendo el procedimiento real: quien lo hace, donde, con que conexion y que pasa si falla. El software se adapta a la operacion, no al reves.</p>
+      </div>
+      <div>
+        <h3>Offline es la regla, no la excepcion</h3>
+        <p>En Argentina la señal se corta. Todo modulo que se usa en campo guarda local, encola y sincroniza. El usuario ve en que estado esta.</p>
+      </div>
+      <div>
+        <h3>Permisos por rol y alcance</h3>
+        <p>Un supervisor ve sus objetivos; un cliente ve sus sitios; gerencia ve todo. Eso se define una vez y aplica en cada pantalla, cada consulta y cada reporte.</p>
+      </div>
+      <div>
+        <h3>Cero duplicacion</h3>
+        <p>Una pantalla parametrica por perfil, una constante por concepto, un mapper por entidad. Menos codigo es menos lugares donde algo se rompe.</p>
+      </div>
+      <div>
+        <h3>Pruebas contra la realidad</h3>
+        <p>Los tests de integracion corren contra base de datos real. Un mock que pasa no sirve de nada si la migracion falla en produccion.</p>
+      </div>
+      <div>
+        <h3>Trazabilidad</h3>
+        <p>Actas firmadas con cadena verificable, auditoria de quien cambio que y cuando. En seguridad, lo que no se puede probar no paso.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tecnico" class="section">
+    <h2>Para equipos tecnicos</h2>
+    <p class="section-intro">Si evaluas el perfil desde ingenieria, esto es lo que vas a encontrar.</p>
+    <div class="tech-grid">
+      <div>
+        <h4>Front</h4>
+        <p>React 19, Vite, PWA (service worker, IndexedDB, cola de sincronizacion), CSS con tokens, sin frameworks de UI.</p>
+      </div>
+      <div>
+        <h4>Back</h4>
+        <p>Firebase (Firestore, Auth, Storage, Cloud Functions), Node y Express, PostgreSQL, MongoDB, JWT, reglas de seguridad y validacion en servidor.</p>
+      </div>
+      <div>
+        <h4>Datos y automatizacion</h4>
+        <p>Python, pandas, procesos programados, Telegram, dashboards livianos sin dependencias.</p>
+      </div>
+      <div>
+        <h4>Codigo publico</h4>
+        <p>
+          <a href="https://github.com/Barret-Code-Agency/Cracks-Backend" target="_blank" rel="noopener">API de mensajeria</a> (Node, MongoDB, Jest) ·
+          <a href="https://github.com/Barret-Code-Agency/WhatsApp-Web-Clone-TP-Final-Frontend" target="_blank" rel="noopener">clon de WhatsApp Web</a> (React) ·
+          <a href="https://github.com/Barret-Code-Agency/Kia_Extensiones" target="_blank" rel="noopener">turnos con MercadoPago</a> ·
+          <a href="https://github.com/Barret-Code-Agency" target="_blank" rel="noopener">todos los repositorios</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="section contact">
+    <h2>Hablemos</h2>
+    <p class="section-intro">
+      Si tenes una empresa de seguridad, una operacion de campo o un proceso que hoy vive en planillas,
+      contame el problema. Respondo en el dia.
+    </p>
+    <div class="contact-actions">
+      <a class="btn btn-primary" href="mailto:barret.code.agency@gmail.com">barret.code.agency@gmail.com</a>
+      <a class="btn btn-ghost" href="https://github.com/Barret-Code-Agency" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>Fernando Delgado · Argentina</span>
+  <span>Software para operaciones de seguridad y control</span>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
