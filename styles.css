@@ -178,7 +178,42 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 
 /* Marca */
 .nav-brand { display: flex; align-items: center; gap: 12px; }
-.nav-brand img { height: 30px; width: auto; display: block; }
+.nav-brand img { height: 40px; width: auto; display: block; }
 .nav-brand span { border-left: 1px solid var(--line); padding-left: 12px; }
 @media (max-width: 480px) { .nav-brand span { display: none; } }
-.footer img { height: 34px; width: auto; display: block; opacity: .9; flex-basis: 100%; }
+.footer img { height: 48px; width: auto; display: block; opacity: .9; flex-basis: 100%; }
+
+/* Demos 2 y 3 */
+.demo-title { margin-top: 44px; font-size: 1.15rem; }
+.demo-title:first-of-type { margin-top: 0; }
+.demo-intro { color: var(--muted); max-width: 720px; margin-bottom: 16px; font-size: .97rem; }
+
+.chain { list-style: none; margin: 0; padding: 8px 0; }
+.chain li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 12px 18px; border-bottom: 1px solid var(--line); }
+.chain li:last-child { border-bottom: 0; }
+.chain .n { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: .85rem; background: rgba(45,212,160,.15); color: var(--ok); border: 1px solid var(--ok); }
+.chain .acta-title { font-weight: 600; }
+.chain .acta-body { font-size: .92rem; color: #cfd6e4; margin: 2px 0 6px; }
+.chain .hashes { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: .74rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.chain .verdict { font-size: .8rem; font-weight: 600; color: var(--ok); margin-top: 4px; }
+.chain li.broken .n { background: rgba(248,113,113,.15); color: var(--bad); border-color: var(--bad); }
+.chain li.broken .verdict { color: var(--bad); }
+.chain li.broken .acta-body { color: var(--bad); }
+.chain li.tampered .acta-body { text-decoration: underline wavy var(--bad); }
+
+.roles { display: flex; gap: 6px; flex-wrap: wrap; }
+.roles button { font-family: inherit; font-size: .85rem; font-weight: 600; padding: 7px 12px; border-radius: 8px; border: 1px solid var(--line); background: transparent; color: var(--text); cursor: pointer; }
+.roles button.sel { background: rgba(245,179,43,.15); border-color: var(--accent); color: var(--accent); }
+.scope { font-size: .85rem; color: var(--muted); }
+.rbac { padding: 8px 18px 16px; overflow-x: auto; }
+.rbac table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.rbac th { text-align: left; font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding: 10px 8px; border-bottom: 1px solid var(--line); }
+.rbac td { padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.rbac tr:last-child td { border-bottom: 0; }
+.rbac .est { font-size: .75rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid; }
+.rbac .est.abierta { color: var(--warn); border-color: var(--warn); }
+.rbac .est.resuelta { color: var(--ok); border-color: var(--ok); }
+.rbac .oculto { color: var(--muted); font-style: italic; }
+.rbac-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.rbac-actions .btn-sm { pointer-events: none; }
+.rbac-actions .none { font-size: .85rem; color: var(--muted); }

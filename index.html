@@ -17,7 +17,7 @@
 <body>
 
 <header class="nav">
-  <a class="nav-brand" href="#top"><img src="img/barret-blanco.png" alt="Barret Code Agency" width="120" height="37"><span>Fernando Delgado</span></a>
+  <a class="nav-brand" href="#top"><img src="img/barret-blanco.png" alt="Barret Code Agency" width="129" height="40"><span>Fernando Delgado</span></a>
   <nav class="nav-links">
     <a href="#casos">Casos</a>
     <a href="#demo">Demo</a>
@@ -242,11 +242,15 @@
   </section>
 
   <section id="demo" class="section demo-section">
-    <h2>Demo: un checklist que no necesita señal</h2>
+    <h2>Tres mecanismos, un click cada uno</h2>
     <p class="section-intro">
-      Asi funciona el control vehicular en la mina. Marca algunos items, corta la conexion con el boton,
-      segui marcando, y volve a conectar: todo lo que hiciste sin señal se sube solo. Cerra la pestaña y
-      volve a abrirla: sigue ahi.
+      Para quien evalua el trabajo desde ingenieria: lo que dicen los casos, funcionando en tu navegador. Sin registro, sin tipear.
+    </p>
+
+    <h3 class="demo-title">1. Un checklist que no necesita señal</h3>
+    <p class="demo-intro">
+      Asi funciona el control vehicular en la mina. Marca algunos items, corta la conexion, segui marcando,
+      y volve a conectar: lo que hiciste sin señal se sube solo. Cerra la pestaña y volve: sigue ahi.
     </p>
 
     <div class="demo">
@@ -268,6 +272,43 @@
           <h4>Registro de sincronizacion</h4>
           <ol id="log"></ol>
         </div>
+      </div>
+    </div>
+
+    <h3 class="demo-title">2. Un libro de actas que no se puede editar sin que se note</h3>
+    <p class="demo-intro">
+      Cada acta se firma con el hash de la anterior, como en el libro de actas de CyranoApp. Alterá una y
+      mirá que pasa con las que siguen. Los hashes son SHA-256 reales, calculados aca.
+    </p>
+    <div class="demo">
+      <div class="demo-toolbar">
+        <div class="net-status"><span class="dot" id="chainDot"></span><span id="chainLabel">Cadena integra</span></div>
+        <div class="demo-toolbar-actions">
+          <button class="btn btn-ghost btn-sm" id="tamper" type="button">Alterar el acta 2</button>
+          <button class="btn btn-ghost btn-sm" id="restore" type="button" hidden>Restaurar</button>
+        </div>
+      </div>
+      <ol class="chain" id="chain"></ol>
+    </div>
+
+    <h3 class="demo-title">3. Una sola pantalla, cuatro roles</h3>
+    <p class="demo-intro">
+      El mismo componente, los mismos datos. Lo que cambia es el rol y su alcance: que filas ve, que
+      columnas ve y que puede hacer. Asi se evita duplicar pantallas por perfil.
+    </p>
+    <div class="demo">
+      <div class="demo-toolbar">
+        <div class="roles" id="roles">
+          <button type="button" data-role="vigilador" class="sel">Vigilador</button>
+          <button type="button" data-role="supervisor">Supervisor</button>
+          <button type="button" data-role="gerencia">Gerencia</button>
+          <button type="button" data-role="cliente">Cliente</button>
+        </div>
+        <span class="scope" id="scope"></span>
+      </div>
+      <div class="rbac">
+        <table id="rbacTable"></table>
+        <div class="rbac-actions" id="rbacActions"></div>
       </div>
     </div>
   </section>
@@ -345,7 +386,7 @@
 </main>
 
 <footer class="footer">
-  <img src="img/barret-blanco.png" alt="Barret Code Agency" width="140" height="44">
+  <img src="img/barret-blanco.png" alt="Barret Code Agency" width="154" height="48">
   <span>Fernando Delgado · Argentina</span>
   <span>Software para operaciones de seguridad y control</span>
 </footer>
