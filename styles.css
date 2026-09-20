@@ -230,3 +230,5 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
   .hero h1, .lead { margin-left: 0; }
   .hero-actions { justify-content: flex-start; }
 }
+
+.cta-inline { color: var(--accent); font-weight: 600; }
