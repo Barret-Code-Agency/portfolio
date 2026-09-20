@@ -3,10 +3,10 @@
   const ITEMS = [
     { id: "luces", name: "Luces delanteras, traseras y de giro" },
     { id: "frenos", name: "Frenos de servicio y de mano" },
-    { id: "neumaticos", name: "Neumaticos y rueda de auxilio" },
+    { id: "neumaticos", name: "Neumáticos y rueda de auxilio" },
     { id: "extintor", name: "Extintor cargado y con vencimiento vigente" },
     { id: "cinturones", name: "Cinturones de seguridad en todas las plazas" },
-    { id: "documentacion", name: "Cedula, seguro y VTV a bordo" },
+    { id: "documentacion", name: "Cédula, seguro y VTV a bordo" },
     { id: "radio", name: "Prueba de enlace por radio con base" },
   ];
   const LATENCIA = 350;
@@ -31,15 +31,15 @@
   const renderLog = () => {
     logEl.innerHTML = state.log.length
       ? state.log.map((l) => `<li class="${l.cls}">${l.t}  ${l.msg}</li>`).join("")
-      : `<li>Sin actividad todavia. Marca un item.</li>`;
+      : `<li>Sin actividad todavía. Marcá un ítem.</li>`;
   };
 
   const renderStatus = () => {
     const n = state.queue.length;
     netDot.className = "dot " + (!state.online ? "bad" : n ? "warn" : "");
-    netLabel.textContent = state.online ? "Conectado" : "Sin conexion";
+    netLabel.textContent = state.online ? "Conectado" : "Sin conexión";
     pendingLabel.textContent = n ? `· ${n} pendiente${n > 1 ? "s" : ""} de subir` : "";
-    toggleBtn.textContent = state.online ? "Cortar conexion" : "Reconectar";
+    toggleBtn.textContent = state.online ? "Cortar conexión" : "Reconectar";
   };
 
   list.innerHTML = ITEMS.map((it) => `<li data-item="${it.id}">
@@ -91,7 +91,7 @@
       save(); render();
       setTimeout(paso, LATENCIA);
     };
-    log(`Conexion recuperada: subiendo ${state.queue.length} registro${state.queue.length > 1 ? "s" : ""}`, "ok");
+    log(`Conexión recuperada: subiendo ${state.queue.length} registro${state.queue.length > 1 ? "s" : ""}`, "ok");
     setTimeout(paso, LATENCIA);
   };
 
@@ -99,8 +99,8 @@
     if (state.online === on) return;
     state.online = on;
     save(); render();
-    if (on) { if (state.queue.length) drenar(); else log("Conexion recuperada", "ok"); }
-    else log("Conexion cortada: todo lo que marques queda en el dispositivo", "bad");
+    if (on) { if (state.queue.length) drenar(); else log("Conexión recuperada", "ok"); }
+    else log("Conexión cortada: todo lo que marques queda en el dispositivo", "bad");
   };
 
   list.addEventListener("click", (e) => {
@@ -136,7 +136,7 @@
   });
   document.getElementById("lightboxClose").addEventListener("click", () => dlg.close());
   dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
-  dlg.addEventListener("close", () => { img.src = ""; });
+  dlg.addEventListener("close", () => { img.removeAttribute("src"); });
 })();
 
 // Demo 2: libro de actas encadenado (SHA-256 real via WebCrypto)
@@ -145,11 +145,11 @@
   if (!list || !window.crypto?.subtle) return;
   const ACTAS = [
     { t: "Toma de servicio", b: "Puesto 4, 06:00. Recibo el puesto sin novedades. Llaves completas, radio operativa." , by: "Vig. 1120" },
-    { t: "Novedad", b: "08:40. Camion de proveedor ingresa sin remito. Se retiene en porteria hasta autorizacion.", by: "Vig. 1120" },
+    { t: "Novedad", b: "08:40. Camión de proveedor ingresa sin remito. Se retiene en portería hasta autorización.", by: "Vig. 1120" },
     { t: "Incidente", b: "11:15. Alarma en sector B. Se verifica: falsa alarma por sensor sucio. Se informa a mantenimiento.", by: "Vig. 1120" },
     { t: "Entrega de servicio", b: "14:00. Entrego el puesto a Vig. 1187. Sin pendientes.", by: "Vig. 1120" },
   ];
-  const TAMPERED = "08:40. Camion de proveedor ingresa con remito en regla. Sin novedad.";
+  const TAMPERED = "08:40. Camión de proveedor ingresa con remito en regla. Sin novedad.";
   const sha = async (s) => {
     const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
     return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
@@ -183,11 +183,11 @@
         <div class="acta-title">${ACTAS[i].t} <span class="pending">· ${ACTAS[i].by}</span></div>
         <div class="acta-body">${x.body}</div>
         <div class="hashes"><span>anterior ${short(x.prev)}</span><span>firma ${short(sealed[i].h)}</span></div>
-        <div class="verdict">${x.ok ? "Firma valida, enlazada con la anterior" : x.tam ? "El contenido no coincide con la firma registrada" : "Enlace roto: depende de un acta alterada"}</div>
+        <div class="verdict">${x.ok ? "Firma válida, enlazada con la anterior" : x.tam ? "El contenido no coincide con la firma registrada" : "Enlace roto: depende de un acta alterada"}</div>
       </div></li>`).join("");
     const broken = v.some((x) => !x.ok);
     document.getElementById("chainDot").className = "dot " + (broken ? "bad" : "");
-    document.getElementById("chainLabel").textContent = broken ? "Cadena rota: " + v.filter((x) => !x.ok).length + " actas invalidas" : "Cadena integra";
+    document.getElementById("chainLabel").textContent = broken ? "Cadena rota: " + v.filter((x) => !x.ok).length + " actas inválidas" : "Cadena íntegra";
     document.getElementById("tamper").hidden = tampered;
     document.getElementById("restore").hidden = !tampered;
   };
@@ -201,16 +201,16 @@
   const table = document.getElementById("rbacTable");
   if (!table) return;
   const ROWS = [
-    { obj: "Planta Norte", puesto: "Puesto 4", vig: "Vig. 1120", hora: "08:40", nov: "Camion sin remito retenido en porteria", est: "abierta", hs: 1.5, cliente: "Metalurgica del Sur" },
-    { obj: "Planta Norte", puesto: "Puesto 2", vig: "Vig. 1187", hora: "09:10", nov: "Luminaria apagada en estacionamiento", est: "resuelta", hs: 0.5, cliente: "Metalurgica del Sur" },
-    { obj: "Deposito Oeste", puesto: "Puesto 1", vig: "Vig. 1043", hora: "07:55", nov: "Porton secundario sin candado", est: "abierta", hs: 2, cliente: "Logistica Andina" },
-    { obj: "Torre Centro", puesto: "Puesto 1", vig: "Vig. 1201", hora: "10:20", nov: "Visita sin acreditar en recepcion", est: "resuelta", hs: 0.25, cliente: "Estudio Ruiz" },
+    { obj: "Planta Norte", puesto: "Puesto 4", vig: "Vig. 1120", hora: "08:40", nov: "Camión sin remito retenido en portería", est: "abierta", hs: 1.5, cliente: "Metalúrgica del Sur" },
+    { obj: "Planta Norte", puesto: "Puesto 2", vig: "Vig. 1187", hora: "09:10", nov: "Luminaria apagada en estacionamiento", est: "resuelta", hs: 0.5, cliente: "Metalúrgica del Sur" },
+    { obj: "Depósito Oeste", puesto: "Puesto 1", vig: "Vig. 1043", hora: "07:55", nov: "Portón secundario sin candado", est: "abierta", hs: 2, cliente: "Logística Andina" },
+    { obj: "Torre Centro", puesto: "Puesto 1", vig: "Vig. 1201", hora: "10:20", nov: "Visita sin acreditar en recepción", est: "resuelta", hs: 0.25, cliente: "Estudio Ruiz" },
   ];
   const ROLES = {
     vigilador:  { scope: "Alcance: Planta Norte, Puesto 4 (el suyo)", filter: (r) => r.puesto === "Puesto 4" && r.obj === "Planta Norte", cols: ["hora", "nov", "est"], actions: ["Registrar novedad", "Firmar toma de servicio"] },
-    supervisor: { scope: "Alcance: zona Norte (Planta Norte y Deposito Oeste)", filter: (r) => r.obj !== "Torre Centro", cols: ["obj", "puesto", "vig", "hora", "nov", "est"], actions: ["Resolver y firmar", "Ordenar ronda extra"] },
+    supervisor: { scope: "Alcance: zona Norte (Planta Norte y Depósito Oeste)", filter: (r) => r.obj !== "Torre Centro", cols: ["obj", "puesto", "vig", "hora", "nov", "est"], actions: ["Resolver y firmar", "Ordenar ronda extra"] },
     gerencia:   { scope: "Alcance: toda la empresa", filter: () => true, cols: ["obj", "puesto", "vig", "hora", "nov", "est", "hs", "cliente"], actions: ["Exportar informe", "Ver costo por objetivo", "Asignar supervisor"] },
-    cliente:    { scope: "Alcance: sus objetivos (Metalurgica del Sur), sin datos internos", filter: (r) => r.cliente === "Metalurgica del Sur", cols: ["obj", "hora", "nov", "est"], actions: [] },
+    cliente:    { scope: "Alcance: sus objetivos (Metalúrgica del Sur), sin datos internos", filter: (r) => r.cliente === "Metalúrgica del Sur", cols: ["obj", "hora", "nov", "est"], actions: [] },
   };
   const LABEL = { obj: "Objetivo", puesto: "Puesto", vig: "Vigilador", hora: "Hora", nov: "Novedad", est: "Estado", hs: "Hs. imputadas", cliente: "Cliente" };
   const cell = (r, c) => c === "est" ? `<span class="est ${r.est}">${r.est}</span>` : c === "hs" ? r.hs.toFixed(2) : r[c];
