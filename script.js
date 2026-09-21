@@ -227,3 +227,12 @@
   document.getElementById("roles").addEventListener("click", (e) => { const b = e.target.closest("button[data-role]"); if (b) render(b.dataset.role); });
   render("vigilador");
 })();
+
+// Menu en el celular
+(() => {
+  const nav = document.querySelector(".nav"), btn = document.getElementById("navToggle");
+  if (!btn) return;
+  const set = (open) => { nav.classList.toggle("open", open); btn.setAttribute("aria-expanded", String(open)); btn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú"); };
+  btn.addEventListener("click", () => set(!nav.classList.contains("open")));
+  document.getElementById("navLinks").addEventListener("click", (e) => { if (e.target.closest("a")) set(false); });
+})();
