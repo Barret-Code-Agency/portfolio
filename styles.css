@@ -74,6 +74,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 .hero h1 { font-size: clamp(2.25rem, 5vw, 3.85rem); max-width: none; }
 .lead { font-size: 1.2rem; color: var(--muted); max-width: none; }
 .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 28px 0 44px; }
+@media (max-width: 720px) { .hero-actions .btn { width: 100%; text-align: center; } }
 .stats {
   list-style: none; padding: 0; margin: 0;
   display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;
@@ -167,7 +168,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 .contact .section-intro { max-width: none; font-size: 1.15rem; }
 .contact-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 .contact-actions .btn { padding: 14px 26px; font-size: 1.05rem; }
-@media (max-width: 720px) { .contact { text-align: left; } .contact-actions { justify-content: flex-start; } .contact .section-intro { font-size: 1rem; } }
+@media (max-width: 720px) { .contact .section-intro { font-size: 1rem; } .contact-actions .btn { width: 100%; text-align: center; } }
 
 .footer {
   max-width: var(--max); margin: 0 auto; padding: 28px 16px 40px;
@@ -235,12 +236,6 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 .rbac-actions .btn-sm { pointer-events: none; }
 .rbac-actions .none { font-size: .85rem; color: var(--muted); }
 
-/* En el celular el hero vuelve a la izquierda: los parrafos centrados largos se leen mal */
-@media (max-width: 720px) {
-  .hero { text-align: left; }
-  .hero h1, .lead { margin-left: 0; }
-  .hero-actions { justify-content: flex-start; }
-}
 
 .cta-inline { color: var(--accent); font-weight: 600; }
 
