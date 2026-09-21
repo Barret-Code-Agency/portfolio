@@ -262,3 +262,8 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 .faq summary::after { content: "+"; color: var(--accent); font-weight: 800; }
 .faq details[open] summary::after { content: "\2212"; }
 .faq p { color: #cfd6e4; font-size: .97rem; margin: 10px 0 0; }
+
+/* [hidden] siempre gana: .btn fuerza display y dejaba visibles los botones ocultos de la demo de actas */
+[hidden] { display: none !important; }
+/* Los saltos por ancla aterrizan debajo del header fijo */
+[id] { scroll-margin-top: 84px; }
