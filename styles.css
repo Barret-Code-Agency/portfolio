@@ -267,3 +267,24 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 [hidden] { display: none !important; }
 /* Los saltos por ancla aterrizan debajo del header fijo */
 [id] { scroll-margin-top: 84px; }
+
+/* WhatsApp flotante: solo en el celular (en escritorio el contacto está en el hero y en Hablemos) */
+.wa-flotante { display: none; }
+@media (max-width: 720px) {
+  .wa-flotante {
+    position: fixed; right: 16px; bottom: 16px; z-index: 40;
+    display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 50%;
+    background: #25d366; color: #062e14; box-shadow: 0 6px 20px rgba(0, 0, 0, .35);
+  }
+  .wa-flotante:active { transform: scale(.96); }
+  /* que el pie no quede tapado por el botón */
+  .footer { padding-bottom: 88px; }
+}
+
+/* Capturas en el celular: recorte a una zona legible en vez de la pantalla completa achicada */
+@media (max-width: 720px) {
+  .hero-shot, .shot-main { height: 220px; overflow: hidden; }
+  .hero-shot img, .shot-main img {
+    width: 100%; height: 100%; object-fit: cover; object-position: var(--shot-pos, top center);
+  }
+}
