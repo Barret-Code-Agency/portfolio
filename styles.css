@@ -160,7 +160,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
 /* Principles / tech */
 .principles, .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
 .principles > div, .tech-grid > div { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
-.principles h3 { font-size: 1.3rem; }
+.principles h3 { font-size: 1.35rem; }
 .principles p, .tech-grid p { color: #cfd6e4; font-size: .97rem; margin: 0; }
 /* Semanticamente son h3 (subtitulo de la seccion "Para equipos tecnicos", un h2 —
    iban como h4 y saltaban un nivel). Mismo estilo visual de etiqueta chica que ya
