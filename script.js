@@ -15,11 +15,22 @@
   const list = $("checklist"), logEl = $("log"), netDot = $("netDot"), netLabel = $("netLabel"),
         pendingLabel = $("pendingLabel"), toggleBtn = $("toggleNet");
 
+  // Algunos navegadores (modo privado viejo, WebView con storage bloqueado) tiran al leer o escribir:
+  // si pasa, la demo sigue funcionando en memoria, pero no hay que prometer que lo marcado persiste.
+  const storageOk = (() => {
+    try { const t = "__t__"; localStorage.setItem(t, "1"); localStorage.removeItem(t); return true; } catch { return false; }
+  })();
+  if (!storageOk) {
+    const intro = $("demo1Intro");
+    if (intro) intro.innerHTML = 'Así funciona el control vehicular en la mina. <strong class="cta-inline">Probalo:</strong> marcá algunos ítems, cortá la conexión y seguí marcando: lo que hiciste sin señal se sube solo. Este navegador no guarda entre visitas (en la app real sí), así que si recargás la página arranca de nuevo.';
+  }
+
   const load = () => {
+    if (!storageOk) return {};
     try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; }
   };
   const state = Object.assign({ online: true, results: {}, synced: {}, queue: [], log: [] }, load());
-  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} };
+  const save = () => { if (!storageOk) return; try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} };
 
   const hora = () => new Date().toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
   const log = (msg, cls = "") => {
@@ -142,7 +153,14 @@
 // Demo 2: libro de actas encadenado (SHA-256 real via WebCrypto)
 (() => {
   const list = document.getElementById("chain");
-  if (!list || !window.crypto?.subtle) return;
+  if (!list) return;
+  if (!window.crypto?.subtle) {
+    // Sin WebCrypto (WebView vieja, http sin TLS): no hay como calcular los hashes. Se avisa en vez de dejar la caja vacía.
+    list.innerHTML = '<li class="chain-sin-soporte">Este navegador no tiene WebCrypto disponible (algunos WebView viejos, o http sin conexión segura), así que la demo no puede calcular los hashes SHA-256 acá. El libro de actas real funciona igual, con el mismo mecanismo.</li>';
+    const toolbar = list.previousElementSibling;
+    if (toolbar?.classList.contains("demo-toolbar")) toolbar.hidden = true;
+    return;
+  }
   const ACTAS = [
     { t: "Toma de servicio", b: "Puesto 4, 06:00. Recibo el puesto sin novedades. Llaves completas, radio operativa." , by: "Vig. 1120" },
     { t: "Novedad", b: "08:40. Camión de proveedor ingresa sin remito. Se retiene en portería hasta autorización.", by: "Vig. 1120" },
