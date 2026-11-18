@@ -60,7 +60,7 @@
     <ul class="stats">
       <li><strong>24</strong><span>años operando seguridad privada antes de programarla, en la trayectoria del fundador</span></li>
       <li><strong>8</strong><span>módulos en producción en un SaaS de vigilancia</span></li>
-      <li><strong>343</strong><span>tests de integración contra base de datos real</span></li>
+      <li><strong>3.455</strong><span>pruebas automáticas en el SaaS de vigilancia: lógica, servidor y reglas de seguridad</span></li>
       <li><strong>85</strong><span>ítems de checklist operando sin señal en una mina</span></li>
       <li><strong>310</strong><span>temas de capacitación servidos con control de acceso</span></li>
       <li><strong>13</strong><span>procesos autónomos corriendo 24/7 que se reconfiguran sin reiniciar</span></li>
@@ -88,6 +88,7 @@
           <a class="shot" href="img/cyrano-lector.webp"><img src="img/cyrano-lector.webp" alt="Lector de un tema de capacitación dentro de la plataforma" loading="lazy"></a>
           <a class="shot" href="img/cyrano-modulos.webp"><img src="img/cyrano-modulos.webp" alt="Selección de módulo al ingresar: vigilador, supervisor, administrativo, gerencia, RRHH, conductores" loading="lazy"></a>
           <a class="shot" href="img/cyrano-2fa.webp"><img src="img/cyrano-2fa.webp" alt="Verificación en dos pasos al iniciar sesion" loading="lazy"></a>
+          <a class="shot" href="img/cyrano-portada.webp"><img src="img/cyrano-portada.webp" alt="Portada de ingreso de CyranoApp: acceso a la izquierda y marca con las banderas de Latinoamérica" loading="lazy"></a>
         </div>
       </figure>
       <div class="case-grid">
@@ -104,15 +105,49 @@
           <ul>
             <li>Permisos por rol y alcance (RBAC con scopes), no por pantalla.</li>
             <li>Libro de actas con cadena de firma verificable en el servidor.</li>
-            <li>PWA con cola de sincronización para los módulos que se usan en campo.</li>
-            <li>Cifrado AES-GCM para datos sensibles del personal.</li>
-            <li>343 tests de integración contra base real, sin mocks.</li>
+            <li>PWA con cola de sincronización para los módulos que se usan en campo; el botón de pánico de las rondas no se cuelga sin señal y avisa a supervisión.</li>
+            <li>Cifrado AES-GCM para datos sensibles del personal, que viven en una colección aparte con acceso por rol.</li>
+            <li>Auditoría de seguridad y pentest: reglas probadas con casos adversariales, política de contenido (CSP), doble factor exigido por las reglas a los administradores y hallazgos verificados en producción.</li>
+            <li>Rediseño sin romper nada: 3.357 colores y 398 radios escritos a mano pasaron a variables de diseño sin cambio visual, y recién después se cambió la identidad.</li>
+            <li>3.455 pruebas automáticas: 2.824 de reglas de seguridad contra emulador, 398 de cliente y 233 de servidor.</li>
           </ul>
         </div>
         <div>
           <h4>Resultado</h4>
           <p>En piloto con una empresa de seguridad real. Períodos de liquidación (24 a 23) y de facturación (1 a 31) modelados por separado, como exige el convenio.</p>
           <p class="case-stack">React 19 · Firebase · Cloud Functions · PWA</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <header>
+        <span class="case-tag">Liquidación y supervisión</span>
+        <h3>Del Excel con macros a una plataforma de horas, cobertura y supervisión</h3>
+      </header>
+      <div class="case-grid">
+        <div>
+          <h4>Problema</h4>
+          <p>En una empresa de transporte de valores, la liquidación de horas vivía en planillas con macros, una por sucursal. Extras por régimen, feriados, nocturnas y francos se calculaban a mano, la programación estaba en otro archivo y cada cierre dependía de quien lo armaba. El mismo dato se calculaba en más de un lugar.</p>
+        </div>
+        <div>
+          <h4>Solución</h4>
+          <p>Una plataforma web que reemplaza esas planillas: horarios por puesto, programación por período del 24 al 23, consolidado con las reglas del convenio, cobertura y nivel de servicio por cliente con semáforo, y los archivos de carga (tramos y fichadas) en el formato que pide el sistema de la empresa. Suma supervisión con hoja de ruta por GPS, control de flota, stock y rondas.</p>
+        </div>
+        <div>
+          <h4>Decisiones técnicas</h4>
+          <ul>
+            <li>Cada regla se calcula una sola vez: las horas extra salen del consolidado y se reparten entre objetivos con pesos normalizados, de modo que lo repartido suma exactamente el total.</li>
+            <li>Edición desde varios dispositivos con sincronización en vivo: si dos personas pisan la misma planilla se conserva la propia y la ajena queda respaldada con aviso. Nada se pierde en silencio.</li>
+            <li>Permisos verificados en el servidor (rol y zona como claims que leen las reglas de la base), con pruebas contra el emulador.</li>
+            <li>Asistencia a capacitaciones con respaldo verificable: el lector de credenciales contrasta cada lectura con el padrón, porque el código de barras no trae dígito verificador. Con credenciales reales identificó bien 5 de 5, en 1,6 segundos.</li>
+            <li>87 pruebas automáticas frenan cada deploy, incluida una que verifica que ningún dato personal viaje en el código publicado.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resultado</h4>
+          <p>En uso real en el área de operaciones. Nació para reemplazar el Excel con macros de la liquidación y hoy suma 25 módulos, entre ellos horarios, consolidado, nivel de servicio, supervisión, vehículos y stock. El cierre del período tiene una única fuente de cálculo.</p>
+          <p class="case-stack">React 19 · TypeScript · Firebase · Cloud Functions</p>
         </div>
       </div>
     </article>
@@ -145,7 +180,10 @@
           <ul>
             <li>IndexedDB con cola de sincronización e indicador visible del estado de red.</li>
             <li>85 ítems en 7 secciones, porteados 1:1 del procedimiento del cliente.</li>
-            <li>Dos roles (vigilador y gerencia), JWT, PostgreSQL detras de una API Express.</li>
+            <li>Tres roles (vigilador, supervisor y gerencia) con alcance por sector, JWT y PostgreSQL detrás de una API Express.</li>
+            <li>Sesiones revocables: restablecer una contraseña cierra la sesión en todos los dispositivos (la versión del token se verifica en cada pedido).</li>
+            <li>Calendario de controles: matriz de patentes por día, con fila de día y de noche por vehículo.</li>
+            <li>Carga de combustible con consumo en km/L por vehículo (método tanque lleno) y odómetro validado contra las cargas vecinas.</li>
           </ul>
         </div>
         <div>
@@ -159,7 +197,7 @@
     <article class="case">
       <header>
         <span class="case-tag">Capacitación</span>
-        <h3>Aula Vigilador: contenido que no se puede copiar</h3>
+        <h3>Aula de Seguridad: contenido que no se puede copiar</h3>
       </header>
       <figure class="shots">
         <a class="shot shot-main" href="img/aula-curso.webp" style="--shot-pos: 50% 0%"><img src="img/aula-curso.webp" alt="Curso inicial de vigilador: avance por tema con estado aprobado o leido" loading="lazy"></a>
@@ -183,6 +221,9 @@
             <li>Tiempo de lectura acreditado por latidos del servidor, no por un temporizador del navegador.</li>
             <li>Un dispositivo activo por cuenta; el último que entra gana.</li>
             <li>Credenciales firmadas (ES256) verificables por terceros.</li>
+            <li>Cada certificado se ancla en Bitcoin con un sello de tiempo (OpenTimestamps): prueba de que existía en esa fecha, sin depender de nuestros servidores.</li>
+            <li>Auditoría integral y pentest previos al lanzamiento, con claves de firma en Secret Manager y verificación posterior al deploy.</li>
+            <li>322 pruebas automáticas: reglas de seguridad, funciones de servidor contra emulador y lógica de cliente.</li>
           </ul>
         </div>
         <div>
