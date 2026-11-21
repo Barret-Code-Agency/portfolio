@@ -6,7 +6,7 @@
     { id: "neumaticos", name: "Neumáticos y rueda de auxilio" },
     { id: "extintor", name: "Extintor cargado y con vencimiento vigente" },
     { id: "cinturones", name: "Cinturones de seguridad en todas las plazas" },
-    { id: "documentacion", name: "Cédula, seguro y VTV a bordo" },
+    { id: "documentacion", name: "Cédula verde y manual del vehículo a bordo" },
     { id: "radio", name: "Prueba de enlace por radio con base" },
   ];
   const LATENCIA = 350;
@@ -32,7 +32,7 @@
   const state = Object.assign({ online: true, results: {}, synced: {}, queue: [], log: [] }, load());
   const save = () => { if (!storageOk) return; try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} };
 
-  const hora = () => new Date().toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+  const hora = () => new Date().toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23" });
   const log = (msg, cls = "") => {
     state.log.unshift({ t: hora(), msg, cls });
     state.log = state.log.slice(0, 12);
