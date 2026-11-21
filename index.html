@@ -236,6 +236,72 @@
 
     <article class="case">
       <header>
+        <span class="case-tag">Producto propio · Trazabilidad</span>
+        <h3>Atesta: registro verificable de lo que hacen los agentes en el código</h3>
+      </header>
+      <div class="case-grid">
+        <div>
+          <h4>Problema</h4>
+          <p>Cada vez más código lo escriben agentes de programación. Cuando algo sale mal, nadie puede probar qué pidió la persona, qué hizo el agente y qué cambió a mano alguien después. El historial de git no distingue autores ni resiste que se lo reescriba.</p>
+        </div>
+        <div>
+          <h4>Solución</h4>
+          <p>Un grabador que corre en la máquina del desarrollador y registra cada pedido, edición, comando y commit en un diario firmado y encadenado. Funciona en espejo al lado de GitHub, sin escribir nada dentro del repositorio del cliente, y cualquiera puede verificar el diario por su cuenta.</p>
+        </div>
+        <div>
+          <h4>Decisiones técnicas</h4>
+          <ul>
+            <li>Cada evento se firma con Ed25519 y se encadena por hash con el anterior: si se borra o se altera una línea, la verificación dice en qué archivo, en qué línea y por qué.</li>
+            <li>Atribución por línea: en cada commit separa lo que escribió el agente de lo que escribió la persona. Ante la duda cuenta como humano, para no inflar nunca lo del agente.</li>
+            <li>Alertas con reglas fijas y explicables: controles desactivados, envío de datos afuera, credenciales expuestas, borrados destructivos.</li>
+            <li>Los secretos se detectan y se reemplazan por su huella antes de grabarse.</li>
+            <li>Servidor multiempresa desde el día cero, con la tabla de eventos de solo agregar: la base rechaza modificaciones y borrados.</li>
+            <li>197 pruebas automáticas, incluidas pruebas con repositorios git reales, que corren antes de cada push.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resultado</h4>
+          <p>En desarrollo, con uso diario interno: el propio repositorio de Atesta se registra con Atesta. En su primer commit registrado, el diario atribuyó 680 de 819 líneas al agente, con la sesión exacta que las escribió.</p>
+          <p class="case-stack">TypeScript · Node · PostgreSQL · React 19</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <header>
+        <span class="case-tag">Tiempo real</span>
+        <h3>Estadísticas de un torneo de básquet, jugada por jugada y en vivo</h3>
+      </header>
+      <div class="case-grid">
+        <div>
+          <h4>Problema</h4>
+          <p>Un torneo comercial de verano llevaba las estadísticas en planillas de papel. El público se enteraba del resultado al otro día y los rankings de jugadores se armaban a mano, cuando se armaban.</p>
+        </div>
+        <div>
+          <h4>Solución</h4>
+          <p>El estadístico carga desde el celular o la tablet al costado de la cancha: toca al jugador y después la jugada, sin escribir nada. El público ve el marcador, la planilla y los líderes en tiempo real, sin cuenta. La organización administra equipos, fixture, listas de buena fe y reglamento.</p>
+        </div>
+        <div>
+          <h4>Decisiones técnicas</h4>
+          <ul>
+            <li>Las jugadas se registran sin borrar nunca: una corrección anula la jugada y revierte las estadísticas, y queda el rastro.</li>
+            <li>Las reglas de la base solo aceptan un marcador que esté respaldado por la jugada que lo movió: no se puede tocar el resultado a mano.</li>
+            <li>La carga sigue funcionando si se corta la señal en el gimnasio y se sincroniza al volver.</li>
+            <li>Tres roles: administración, estadístico asignado a cada partido y público de solo lectura.</li>
+            <li>Valoración validada jugador por jugador contra la planilla oficial de un partido real.</li>
+            <li>Auditoría y pentest antes de abrir al público. 106 pruebas automáticas: 64 de lógica y 42 de reglas de seguridad contra emulador.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resultado</h4>
+          <p>En producción para la edición 2027. Cada toque del estadístico llega a las pantallas del público en menos de un segundo. <a href="https://torneo-comercial.web.app" target="_blank" rel="noopener">Ver el sitio del torneo</a>.</p>
+          <p class="case-stack">React 19 · TypeScript · Firebase · Tiempo real</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <header>
         <span class="case-tag">Automatización</span>
         <h3>Procesos 24/7 que se reconfiguran sin reiniciar</h3>
       </header>
@@ -293,6 +359,36 @@
           <h4>Resultado</h4>
           <p>De días a minutos. Sirve como puerta de entrada comercial: el cliente se diagnostica y la consultora llega con el informe hecho.</p>
           <p class="case-stack">HTML · JS · Excel</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="case">
+      <header>
+        <span class="case-tag">Sitio comercial</span>
+        <h3>Gato Tuerto: el sitio de un restobar que carga en dos segundos</h3>
+      </header>
+      <div class="case-grid">
+        <div>
+          <h4>Problema</h4>
+          <p>Un restobar y cafetería sin presencia propia en la web: la carta, las fotos y el contacto vivían repartidos en redes sociales, y desde el celular no había un lugar rápido para ver qué hay y escribir.</p>
+        </div>
+        <div>
+          <h4>Solución</h4>
+          <p>Un sitio de una página con la carta real, fotos de los platos, galería del local y contacto directo por teléfono y WhatsApp, pensado primero para el celular.</p>
+        </div>
+        <div>
+          <h4>Decisiones técnicas</h4>
+          <ul>
+            <li>Páginas prerenderizadas en el build: el contenido llega armado, sin esperar a JavaScript.</li>
+            <li>Fotos convertidas a WebP en el build y fuentes alojadas en el propio sitio: ningún tercero se carga al abrir la página.</li>
+            <li>Auditoría completa adaptada a un sitio estático, con cada corrección verificada en producción.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resultado</h4>
+          <p>Después de la auditoría, el tiempo hasta ver el contenido principal bajó de 4,0 a 2,0 segundos, el puntaje de rendimiento pasó de 82 a 96 y el peso de la página se redujo a la mitad. <a href="https://gato-tuerto.vercel.app" target="_blank" rel="noopener">Ver el sitio</a>.</p>
+          <p class="case-stack">React 19 · Vite · Prerender</p>
         </div>
       </div>
     </article>
