@@ -63,7 +63,7 @@
       <li><strong>3.470</strong><span>pruebas automáticas en el SaaS de vigilancia: lógica, servidor y reglas de seguridad</span></li>
       <li><strong>97</strong><span>ítems de checklist operando sin señal en una mina</span></li>
       <li><strong>310</strong><span>temas de capacitación servidos con control de acceso</span></li>
-      <li><strong>8</strong><span>procesos autónomos corriendo 24/7 que se reconfiguran sin reiniciar</span></li>
+      <li><strong>8</strong><span>procesos autónomos corriendo 24/7, con control manual desde un tablero</span></li>
     </ul>
   </section>
 
@@ -303,7 +303,7 @@
     <article class="case">
       <header>
         <span class="case-tag">Automatización</span>
-        <h3>Procesos 24/7 que se reconfiguran sin reiniciar</h3>
+        <h3>Procesos autónomos 24/7 que una persona puede tomar a mano en un click</h3>
       </header>
       <figure class="shots">
         <a class="shot shot-main" href="img/bots-panel.webp" style="--shot-pos: 50% 10%"><img src="img/bots-panel.webp" alt="Tablero de operación de la flota de procesos: estado de cada uno, resultado acumulado, órdenes manuales y modo automático" loading="lazy"></a>
@@ -311,24 +311,26 @@
       <div class="case-grid">
         <div>
           <h4>Problema</h4>
-          <p>Operar una flota de procesos autónomos que toman decisiones cada pocos minutos, sin reiniciarlos cada vez que hay que ajustar un parámetro y sin enterarse tarde cuando uno se cae.</p>
+          <p>Dejar procesos que toman decisiones solos corriendo día y noche sin perder el control: saber en todo momento qué está haciendo cada uno, poder intervenir sin apagarlos y que un error no se repita en loop.</p>
         </div>
         <div>
           <h4>Solución</h4>
-          <p>Ocho procesos independientes con un tablero unificado que se regenera solo cada 5 minutos y un panel que edita la configuración en caliente. Un watchdog los levanta si se caen y las alertas llegan por Telegram.</p>
+          <p>Ocho procesos que siguen una regla fija sobre cuatro activos, en dos modalidades, ejecutados por una tarea programada cada 4 horas en un entorno de prueba del exchange. Un tablero único se regenera solo cada 5 minutos y desde ahí se toma cualquier proceso a mano y se lo devuelve al automático. Cada evento llega por Telegram.</p>
         </div>
         <div>
           <h4>Decisiones técnicas</h4>
           <ul>
-            <li>Configuración viva: cada proceso relee sus parámetros al inicio de cada ciclo, con validación de rango y fallback al valor por defecto.</li>
-            <li>Circuit breakers diarios y semanales que frenan la operación ante condiciones anómalas.</li>
-            <li>Núcleo compartido: un cambio llega a los ocho procesos sin duplicar código.</li>
+            <li>Regla validada antes de correr: parámetros fijos sin optimizar, con comisiones y deslizamiento incluidos, probada en un tramo de datos que no se usó para elegirla y comparada contra no hacer nada.</li>
+            <li>Control manual sin apagar nada: una orden desde el tablero marca el proceso como manual y el automático deja de pisarlo hasta que se lo devuelve. Un bloqueo evita que un doble click mande dos órdenes.</li>
+            <li>Después de un corte de pérdidas, el proceso queda bloqueado hasta que la señal se da vuelta: no reentra en el mismo error.</li>
+            <li>El tablero avisa cuando un dato tiene más de 15 minutos, para no decidir con información vieja.</li>
+            <li>Un mismo código por modalidad, parametrizado por activo: un cambio llega a los ocho procesos sin duplicar nada.</li>
           </ul>
         </div>
         <div>
           <h4>Resultado</h4>
-          <p>Corriendo desde mayo de 2026 sin intervención manual. Tableros accesibles desde cualquier lugar por túnel seguro.</p>
-          <p class="case-stack">Python · pandas · Telegram · Tailscale</p>
+          <p>Corriendo desde agosto de 2026, con cada decisión registrada en un diario por proceso. El tablero solo se abre desde la red privada, por túnel seguro.</p>
+          <p class="case-stack">Python · ccxt · Flask · Telegram · Tailscale</p>
         </div>
       </div>
     </article>
