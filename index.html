@@ -60,10 +60,10 @@
     <ul class="stats">
       <li><strong>24</strong><span>años operando seguridad privada antes de programarla, en la trayectoria del fundador</span></li>
       <li><strong>8</strong><span>módulos en producción en un SaaS de vigilancia</span></li>
-      <li><strong>3.455</strong><span>pruebas automáticas en el SaaS de vigilancia: lógica, servidor y reglas de seguridad</span></li>
-      <li><strong>85</strong><span>ítems de checklist operando sin señal en una mina</span></li>
+      <li><strong>3.470</strong><span>pruebas automáticas en el SaaS de vigilancia: lógica, servidor y reglas de seguridad</span></li>
+      <li><strong>97</strong><span>ítems de checklist operando sin señal en una mina</span></li>
       <li><strong>310</strong><span>temas de capacitación servidos con control de acceso</span></li>
-      <li><strong>13</strong><span>procesos autónomos corriendo 24/7 que se reconfiguran sin reiniciar</span></li>
+      <li><strong>8</strong><span>procesos autónomos corriendo 24/7 que se reconfiguran sin reiniciar</span></li>
     </ul>
   </section>
 
@@ -109,7 +109,7 @@
             <li>Cifrado AES-GCM para datos sensibles del personal, que viven en una colección aparte con acceso por rol.</li>
             <li>Auditoría de seguridad y pentest: reglas probadas con casos adversariales, política de contenido (CSP), doble factor exigido por las reglas a los administradores y hallazgos verificados en producción.</li>
             <li>Rediseño sin romper nada: 3.357 colores y 398 radios escritos a mano pasaron a variables de diseño sin cambio visual, y recién después se cambió la identidad.</li>
-            <li>3.455 pruebas automáticas: 2.824 de reglas de seguridad contra emulador, 398 de cliente y 233 de servidor.</li>
+            <li>3.470 pruebas automáticas: 2.824 de reglas de seguridad contra emulador, 407 de cliente y 239 de servidor.</li>
           </ul>
         </div>
         <div>
@@ -179,7 +179,7 @@
           <h4>Decisiones técnicas</h4>
           <ul>
             <li>IndexedDB con cola de sincronización e indicador visible del estado de red.</li>
-            <li>85 ítems en 7 secciones, porteados 1:1 del procedimiento del cliente.</li>
+            <li>97 ítems en 9 secciones, porteados 1:1 del procedimiento del cliente.</li>
             <li>Tres roles (vigilador, supervisor y gerencia) con alcance por sector, JWT y PostgreSQL detrás de una API Express.</li>
             <li>Sesiones revocables: restablecer una contraseña cierra la sesión en todos los dispositivos (la versión del token se verifica en cada pedido).</li>
             <li>Calendario de controles: matriz de patentes por día, con fila de día y de noche por vehículo.</li>
@@ -315,14 +315,14 @@
         </div>
         <div>
           <h4>Solución</h4>
-          <p>Trece procesos independientes con un tablero unificado que se regenera solo cada 5 minutos y un panel que edita la configuración en caliente. Un watchdog los levanta si se caen y las alertas llegan por Telegram.</p>
+          <p>Ocho procesos independientes con un tablero unificado que se regenera solo cada 5 minutos y un panel que edita la configuración en caliente. Un watchdog los levanta si se caen y las alertas llegan por Telegram.</p>
         </div>
         <div>
           <h4>Decisiones técnicas</h4>
           <ul>
             <li>Configuración viva: cada proceso relee sus parámetros al inicio de cada ciclo, con validación de rango y fallback al valor por defecto.</li>
             <li>Circuit breakers diarios y semanales que frenan la operación ante condiciones anómalas.</li>
-            <li>Núcleo compartido: un cambio llega a los trece procesos sin duplicar código.</li>
+            <li>Núcleo compartido: un cambio llega a los ocho procesos sin duplicar código.</li>
           </ul>
         </div>
         <div>
